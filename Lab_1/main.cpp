@@ -8,10 +8,10 @@ double function(double x)
 	return x * x - log(4 * x);
 }
 
-//Данная функция заполняет таблицу значениям x и function(x),
-//при этом берутся только те значения (x, function(x)),
-//у которых function(x) имеет противополжный знак по справнению
-//по сравнению с прошлым function(x)
+//Fill table values of x and function(x)
+//in this case only those values x and function(x) are taken
+//for which function(x) has the opposite sign
+//compared to the previous function(x)
 void generateSegmentsTable(std::vector<std::pair<double, double>>& segmentsTable,
 	const double minValueX, const double maxValueX, const double stepX)
 {
@@ -22,12 +22,12 @@ void generateSegmentsTable(std::vector<std::pair<double, double>>& segmentsTable
 		valueTable.push_back(std::make_pair(x, function(x)));
 	}
 
-	//true обозначает +; false обозначает -
+	//true is +; false is -
 	bool prevSign;
 
 	std::vector<std::pair<double, double>>::iterator it = valueTable.begin();
 
-	//Переносим первую пару значений в таблицу отрезков
+	//Transfer the first pair of values to the segment table
 	segmentsTable.push_back(std::make_pair(it->first, it->second));
 	prevSign = it->second >= 0 ? true : false;
 	it++;
