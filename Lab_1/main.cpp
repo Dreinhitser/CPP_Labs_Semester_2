@@ -12,7 +12,7 @@ double function(double x)
 //при этом берутся только те значения (x, function(x)),
 //у которых function(x) имеет противополжный знак по справнению
 //по сравнению с прошлым function(x)
-void generateValueTable(std::vector<std::pair<double, double>>& segmentsTable,
+void generateSegmentsTable(std::vector<std::pair<double, double>>& segmentsTable,
 	const double minValueX, const double maxValueX, const double stepX)
 {
 	std::vector<std::pair<double, double>> valueTable;
@@ -57,7 +57,7 @@ int main()
 
 	std::vector<std::pair<double, double>> segmentsTable;
 
-	generateValueTable(segmentsTable, minValueX, maxValueX, stepX);
+	generateSegmentsTable(segmentsTable, minValueX, maxValueX, stepX);
 
 	return 0;
 }
