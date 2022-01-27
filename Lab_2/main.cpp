@@ -4,6 +4,8 @@
 #include <cmath>
 #include "dataset.h"
 
+//17
+
 int main()
 {
 	const int minLines = 8;
@@ -14,11 +16,11 @@ int main()
 
 	if (output.is_open())
 	{
-		output << "Lines	T(e)	T(1)	T(2)	T(e)/T(1)	T(e)/T(2)" <<
+		output << "Lines\t  T(e)\t   T(1)\t  T(2)\t T(e)/T(1)\t T(e)/T(2)" <<
 			std::endl;
 
-		double tE;
-		double t1;
+		long long tE;
+		long long t1;
 		double t2;
 		const std::string outFilename = "out.txt";
 
@@ -29,11 +31,22 @@ int main()
 			t1 = lines * lines;
 			t2 = lines * std::log2(lines);
 
-			output << lines << "\t" << tE << "\t" << t1 << "\t" << t2 <<
-				"\t" << tE / t1 << "\t" << tE / t2 << std::endl;
+			// +- красивый вывод
+			output.setf(std::ios::fixed);
+			output << std::setprecision(3);
+
+			output << std::setw(5) << lines << " " << std::setw(8) <<
+				tE << " " << std::setw(8) << t1 << " " << std::setw(6) <<
+				static_cast<long long>(t2) << " " << std::setw(11) <<
+				static_cast<double>(tE) / t1 << "  " << std::setw(4) <<
+				"  " << tE / t2 << std::endl;
 		}
 
 		output.close();
+	}
+	else
+	{
+		std::cerr << "Error: table file not created";
 	}
 
 	return 0;

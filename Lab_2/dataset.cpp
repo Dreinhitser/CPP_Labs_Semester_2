@@ -8,17 +8,17 @@ void generateDataset(const std::string filename, const int maxLines)
 	{
 		std::srand(static_cast<unsigned>(std::time(nullptr)));
 
-		// 'A' = 65
-		const int startSymbol = 25;
+		// 'A' = 65, 'Z' = 90, 90 - 65 = 25 + 1
+		const int startSymbol = 65;
 		// 'Z' = 90
 		const int endSymbol = 90;
-		const int different = endSymbol - startSymbol;
+		const int different = endSymbol - startSymbol + 1;
 
 		for (int line = 0; line < maxLines; line++)
 		{
-			output << static_cast<char>(std::rand() % startSymbol + different);
-			output << static_cast<char>(std::rand() % startSymbol + different);
-			output << static_cast<char>(std::rand() % startSymbol + different);
+			output << static_cast<char>(std::rand() % different + startSymbol);
+			output << static_cast<char>(std::rand() % different + startSymbol);
+			output << static_cast<char>(std::rand() % different + startSymbol);
 			output << std::endl;
 		}
 
@@ -49,16 +49,20 @@ int sortDataset(const std::string filename)
 
 		input.close();
 
-		for (auto& it1 : symbols)
-			for (auto& it2 : symbols)
-				if (it1 < it2)
+		for (int i = 0; i < symbols.size() - 1; i++)
+		{
+			for (int j = i + 1; j < symbols.size(); j++)
+			{
+				if (symbols[i] < symbols[j])
 				{
-					char temp = it1;
-					it1 = it2;
-					it2 = temp;
+					char temp = symbols[i];
+					symbols[i] = symbols[j];
+					symbols[j] = temp;
 
 					iterations++;
 				}
+			}
+		}
 
 		// ".txt"
 		const int countExtensionSymbols = 4;
