@@ -1,6 +1,31 @@
 ################################################################################
 # Данный GITIGNORE-файл был автоматически создан Microsoft(R) Visual Studio.
 ################################################################################
+/Lab_1/Lab_1.vcxproj.user
+/Lab_1/Lab_1.vcxproj.filters
+/Lab_1/Lab_1.vcxproj
+/Lab_1/Lab_1.sln
+/Lab_1/.vs
+/Lab_1/Debug
+
+/Lab_2/Lab_2.vcxproj.user
+/Lab_2/Lab_2.vcxproj.filters
+/Lab_2/Lab_2.vcxproj
+/Lab_2/Lab_2.sln
+/Lab_2/.vs
+/Lab_2/x64
+
+/Lab_3/Lab_3.vcxproj.user
+/Lab_3/Lab_3.vcxproj.filters
+/Lab_3/Lab_3.vcxproj
+/Lab_3/Lab_3.sln
+/Lab_3/.vs
+
+/Lab_3/x64/Debug
+=======
+################################################################################
+# Данный GITIGNORE-файл был автоматически создан Microsoft(R) Visual Studio.
+################################################################################
 
 /Lab_2/.vs/Lab_2/v17
 /Lab_2/Lab_2.sln
