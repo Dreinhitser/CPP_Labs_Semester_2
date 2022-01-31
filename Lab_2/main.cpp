@@ -4,7 +4,7 @@
 #include <cmath>
 #include "dataset.h"
 
-//17
+//17 вариант
 
 int main()
 {
@@ -31,7 +31,7 @@ int main()
 			t1 = lines * lines;
 			t2 = lines * std::log2(lines);
 
-			// +- �������� �����
+			// +- красивый вывод таблицы
 			output.setf(std::ios::fixed);
 			output << std::setprecision(3);
 
