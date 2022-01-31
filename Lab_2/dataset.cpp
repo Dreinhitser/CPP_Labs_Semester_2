@@ -1,11 +1,13 @@
 #include "dataset.h"
 
+//Создает файл с maxLines количеством строк, в которых 3 случайных символа
 void generateDataset(const std::string filename, const int maxLines)
 {
 	std::ofstream output(filename);
 
 	if (output.is_open())
 	{
+		//Настраиваем seed для rand
 		std::srand(static_cast<unsigned>(std::time(nullptr)));
 
 		// 'A' = 65, 'Z' = 90, 90 - 65 = 25 + 1
@@ -30,6 +32,7 @@ void generateDataset(const std::string filename, const int maxLines)
 	}
 }
 
+//Создает файл, который содержит данные файла filename в отсортированном по убыванию виде
 int sortDataset(const std::string filename)
 {
 	int iterations = 0;
@@ -38,9 +41,11 @@ int sortDataset(const std::string filename)
 
 	if (input.is_open())
 	{
+		//В векторе будем хранить символы из входного файла
 		std::vector<char> symbols;
 		char symbol;
-
+		
+		//Считываем символы в вектор
 		while (input)
 		{
 			input >> symbol;
@@ -48,7 +53,8 @@ int sortDataset(const std::string filename)
 		}
 
 		input.close();
-
+		
+		//Сортируем вектор по убыванию
 		for (int i = 0; i < symbols.size() - 1; i++)
 		{
 			for (int j = i + 1; j < symbols.size(); j++)
@@ -64,6 +70,7 @@ int sortDataset(const std::string filename)
 			}
 		}
 
+		//Генерируем название выходного файла. input.txt --> input.sort.txt
 		// ".txt"
 		const int countExtensionSymbols = 4;
 		std::string outFilename = filename;
@@ -72,6 +79,7 @@ int sortDataset(const std::string filename)
 
 		std::ofstream output(outFilename);
 
+		//Записываем в выходной файл отсортированный массив
 		if (output.is_open())
 		{
 			for (auto& it : symbols)
