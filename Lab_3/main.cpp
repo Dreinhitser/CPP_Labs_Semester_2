@@ -4,7 +4,7 @@
 #include <ctime>
 #include <cstdlib>
 
-//17
+//17 вариант
 
 struct Node
 {
